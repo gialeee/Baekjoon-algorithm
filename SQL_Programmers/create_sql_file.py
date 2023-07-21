@@ -3,7 +3,7 @@ Programmers SQL 코딩테스트 문제 풀이 내용 .sql 파일로 변환
 '''
 
 # 문제 관련 정보
-path = "./SELECT/"
+path = "./SQL_Programmers/SELECT/"
 title = "3월에 태어난 여성 회원 목록 출력하기"
 url = "https://school.programmers.co.kr/learn/courses/30/lessons/131120"
 query = """
