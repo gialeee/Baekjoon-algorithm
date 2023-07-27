@@ -1,0 +1,23 @@
+-- https://school.programmers.co.kr/learn/courses/30/lessons/131537
+
+-- UNION, WITH절 복습 필요!
+
+WITH SALES AS (
+    SELECT DATE_FORMAT(O.SALES_DATE, '%Y-%m-%d') AS SALES_DATE,
+            O.PRODUCT_ID,
+            O.USER_ID,
+            O.SALES_AMOUNT
+    FROM ONLINE_SALE O
+    UNION ALL
+    SELECT DATE_FORMAT(OFF.SALES_DATE, '%Y-%m-%d') AS SALES_DATE,
+            OFF.PRODUCT_ID,
+            NULL USER_ID,
+            OFF.SALES_AMOUNT
+    FROM OFFLINE_SALE OFF )
+SELECT A.SALES_DATE,
+        A.PRODUCT_ID,
+        A.USER_ID,
+        A.SALES_AMOUNT
+FROM SALES A
+WHERE DATE_FORMAT(A.SALES_DATE, '%Y-%m') = '2022-03'
+ORDER BY SALES_DATE, PRODUCT_ID, USER_ID
